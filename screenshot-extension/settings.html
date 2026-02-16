@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>OmniCapture Settings</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+    <div class="settings-container">
+        <header class="settings-header">
+            <h1>⚙️ OmniCapture Pro Settings</h1>
+            <p>Customize your screenshot experience</p>
+        </header>
+
+        <div class="settings-content">
+            <!-- Capture Settings -->
+            <section class="settings-section">
+                <h2>📸 Capture Settings</h2>
+
+                <div class="setting-item">
+                    <label for="scrollDelay">Scroll Delay (ms)</label>
+                    <input type="number" id="scrollDelay" min="100" max="2000" step="100" value="300">
+                    <small>Time to wait after scrolling before capturing</small>
+                </div>
+
+                <div class="setting-item">
+                    <label for="scrollSpeed">Scroll Animation Speed (ms)</label>
+                    <input type="number" id="scrollSpeed" min="100" max="2000" step="100" value="500">
+                    <small>Initial scroll animation duration</small>
+                </div>
+
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="hideScrollbars">
+                        Hide scrollbars during capture
+                    </label>
+                </div>
+            </section>
+
+            <!-- Export Settings -->
+            <section class="settings-section">
+                <h2>💾 Export Settings</h2>
+
+                <div class="setting-item">
+                    <label for="defaultFormat">Default Image Format</label>
+                    <select id="defaultFormat">
+                        <option value="png">PNG (Lossless)</option>
+                        <option value="jpg">JPG (Smaller file)</option>
+                        <option value="webp">WebP (Modern)</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label for="imageQuality">Image Quality (for JPG/WebP)</label>
+                    <input type="range" id="imageQuality" min="0.5" max="1.0" step="0.1" value="1.0">
+                    <span id="qualityValue">100%</span>
+                </div>
+
+                <div class="setting-item">
+                    <label for="filenameTemplate">Filename Template</label>
+                    <input type="text" id="filenameTemplate" value="OmniCapture_{timestamp}"
+                        placeholder="OmniCapture_{timestamp}">
+                    <small>Available: {date}, {time}, {timestamp}, {domain}, {title}</small>
+                </div>
+            </section>
+
+            <!-- Editor Settings -->
+            <section class="settings-section">
+                <h2>✏️ Editor Settings</h2>
+
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="autoOpenEditor" checked>
+                        Automatically open editor after capture
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label for="defaultTool">Default Editor Tool</label>
+                    <select id="defaultTool">
+                        <option value="pen">Pen</option>
+                        <option value="highlighter">Highlighter</option>
+                        <option value="arrow">Arrow</option>
+                        <option value="rectangle">Rectangle</option>
+                        <option value="text">Text</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- History Settings -->
+            <section class="settings-section">
+                <h2>📚 History Settings</h2>
+
+                <div class="setting-item">
+                    <label for="maxHistoryItems">Maximum History Items</label>
+                    <input type="number" id="maxHistoryItems" min="10" max="100" step="10" value="50">
+                    <small>Older screenshots will be automatically deleted</small>
+                </div>
+
+                <div class="setting-item">
+                    <button id="clearHistoryBtn" class="danger-btn">🗑️ Clear All History</button>
+                </div>
+            </section>
+
+            <!-- Keyboard Shortcuts -->
+            <section class="settings-section">
+                <h2>⌨️ Keyboard Shortcuts</h2>
+
+                <div class="shortcuts-list">
+                    <div class="shortcut-item">
+                        <span>Capture Full Page</span>
+                        <kbd>Ctrl+Shift+S</kbd>
+                    </div>
+                    <div class="shortcut-item">
+                        <span>Select Area</span>
+                        <kbd>Ctrl+Shift+A</kbd>
+                    </div>
+                    <div class="shortcut-item">
+                        <span>Capture Visible</span>
+                        <kbd>Ctrl+Shift+V</kbd>
+                    </div>
+                </div>
+                <small>Customize shortcuts in <code>chrome://extensions/shortcuts</code></small>
+            </section>
+        </div>
+
+        <footer class="settings-footer">
+            <button id="resetBtn" class="secondary-btn">Reset to Defaults</button>
+            <button id="saveBtn" class="primary-btn">💾 Save Settings</button>
+        </footer>
+
+        <div id="saveNotification" class="save-notification" style="display: none;">
+            ✓ Settings saved successfully!
+        </div>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+
+</html>

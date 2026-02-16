@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Manager Pro</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search templates..." autocomplete="off">
+            </div>
+            <button id="openOptionsBtn" class="icon-btn" title="Manage Templates">⚙️</button>
+        </header>
+
+        <!-- Categories -->
+        <div class="categories-scroll" id="categoryList">
+            <button class="cat-chip active" data-id="all">All</button>
+            <button class="cat-chip" data-id="fav">⭐ Favorites</button>
+            <!-- Dynamic Categories -->
+        </div>
+
+        <!-- Template List -->
+        <div class="template-list" id="templateList">
+            <!-- Dynamic Templates -->
+        </div>
+
+        <!-- Footer Actions -->
+        <footer>
+            <button id="addBtn" class="primary-btn">+ New Template</button>
+        </footer>
+    </div>
+
+    <!-- Scripts: Order Matters -->
+    <script src="../lib/db.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>

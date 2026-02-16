@@ -1,0 +1,18 @@
+#screenshot-overlay-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2147483647;
+  cursor: crosshair;
+  background: transparent;
+}
+
+#screenshot-selection-box {
+  position: absolute;
+  border: 1px dashed white;
+  background: transparent;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+  display: none;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Screenshot Result</title>
+    <style>
+        body { font-family: sans-serif; background: #eee; margin: 0; padding: 20px; text-align: center; }
+        canvas { border: 1px solid #ccc; max-width: 90%; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .controls { margin-bottom: 20px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #0078d7; color: white; border: none; border-radius: 4px; }
+        button:hover { background: #005a9e; }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <button id="download-btn">Download Image</button>
+    </div>
+    <div id="container">
+        <p id="loading">Processing image...</p>
+        <canvas id="canvas" style="display:none;"></canvas>
+    </div>
+    <script src="result.js"></script>
+</body>
+</html>

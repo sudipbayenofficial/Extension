@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Template Manager Pro - Options</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <h2>Template Manager Pro</h2>
+                <span class="version-tag">Created By ~ Sudip Bayen</span>
+            </div>
+            <nav>
+                <button class="nav-btn active" data-view="templates-view">📄 Templates</button>
+                <button class="nav-btn" data-view="categories-view">🏷️ Categories</button>
+                <button class="nav-btn" data-view="settings-view">⚙️ Settings</button>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <!-- TEMPLATES VIEW -->
+            <div id="templates-view" class="view active">
+                <header class="view-header">
+                    <h1>My Templates</h1>
+                    <button id="newTemplateBtn" class="primary-btn">New Template</button>
+                </header>
+
+                <div class="toolbar">
+                    <input type="text" id="tmplSearch" placeholder="Search templates...">
+                    <select id="tmplCatFilter">
+                        <option value="all">All Categories</option>
+                    </select>
+                </div>
+
+                <div class="data-grid-container">
+                    <table class="data-grid" id="templatesTable">
+                        <thead>
+                            <tr>
+                                <th style="width: 30%">Title</th>
+                                <th style="width: 40%">Content Preview</th>
+                                <th style="width: 15%">Category</th>
+                                <th style="width: 15%">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- CATEGORIES VIEW -->
+            <div id="categories-view" class="view">
+                <header class="view-header">
+                    <h1>Categories</h1>
+                    <button id="newCategoryBtn" class="primary-btn">New Category</button>
+                </header>
+
+                <div class="data-grid-container">
+                    <table class="data-grid" id="categoriesTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Color</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SETTINGS VIEW -->
+            <div id="settings-view" class="view">
+                <header class="view-header">
+                    <h1>Settings</h1>
+                </header>
+                <div class="settings-panel">
+                    <div class="setting-group">
+                        <h3>Data Management</h3>
+                        <p>Export your templates to JSON or import from a backup.</p>
+                        <div class="actions">
+                            <button id="exportBtn" class="secondary-btn">Export Data</button>
+                            <button id="importBtn" class="secondary-btn">Import Data</button>
+                            <input type="file" id="importFile" hidden accept=".json">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL (Shared for Add/Edit) -->
+    <div id="modalOverlay" class="modal-overlay hidden">
+        <div class="modal">
+            <h2 id="modalTitle">Edit Template</h2>
+            <form id="modalForm">
+                <!-- Fields injected dynamically based on type -->
+            </form>
+            <div class="modal-actions">
+                <button type="button" class="secondary-btn" id="modalCancel">Cancel</button>
+                <button type="submit" class="primary-btn" id="modalSave">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../lib/db.js"></script>
+    <script src="options.js"></script>
+</body>
+
+</html>

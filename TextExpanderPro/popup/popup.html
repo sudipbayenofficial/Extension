@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextExpander Pro</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <span class="logo">⚡</span>
+                <h1>TextExpander Pro</h1>
+            </div>
+            <button id="settingsBtn" class="icon-btn" title="Settings">⚙️</button>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search templates..." autofocus>
+        </div>
+
+        <div class="template-list" id="templateList">
+            <!-- Dynamic content -->
+        </div>
+
+        <footer>
+            <button id="newTemplateBtn" class="primary-btn">+ New Template</button>
+            <div class="footer-branding">
+                <span class="version">v1.0.0</span>
+                <span class="separator">•</span>
+                <span class="creator">Created By: Sudip Bayen</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../lib/db.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>

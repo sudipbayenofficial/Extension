@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextExpander Pro - Settings</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <h2>⚡ TextExpander Pro</h2>
+            </div>
+            <nav>
+                <button class="nav-btn active" data-view="templates">📝 Templates</button>
+                <button class="nav-btn" data-view="folders">📁 Folders</button>
+            </nav>
+
+            <div class="branding">
+                <div class="version">v1.0.0</div>
+                <div class="creator">Created By: Sudip Bayen</div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- Templates View -->
+            <div id="templates-view" class="view active">
+                <div class="view-header">
+                    <h1>Templates</h1>
+                    <button id="newTemplateBtn" class="primary-btn">+ New Template</button>
+                </div>
+
+                <div class="toolbar">
+                    <input type="text" id="searchTemplates" placeholder="Search templates..." class="search-input">
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Trigger</th>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="templatesTableBody">
+                        <!-- Dynamic -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Folders View -->
+            <div id="folders-view" class="view hidden">
+                <div class="view-header">
+                    <h1>Folders</h1>
+                    <button id="newFolderBtn" class="primary-btn">+ New Folder</button>
+                </div>
+
+                <div class="folders-grid" id="foldersGrid">
+                    <!-- Dynamic -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal template-modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">New Template</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="templateForm">
+                <div class="form-fields-grid">
+                    <div class="form-group">
+                        <label>Trigger (e.g., ;br)</label>
+                        <input type="text" id="inputTrigger" required placeholder=";shortcut">
+                    </div>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" id="inputTitle" required placeholder="Template Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Folder</label>
+                        <select id="inputFolder" class="form-select">
+                            <option value="default">General</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tags (comma-separated)</label>
+                        <input type="text" id="inputTags" placeholder="work, email, signature">
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label>Content</label>
+                    <div id="editor" class="editor" contenteditable="true" placeholder="Type your template content...">
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="secondary-btn modal-close">Cancel</button>
+                    <button type="submit" class="primary-btn">Save Template</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Folder Modal -->
+    <div id="folderModal" class="modal hidden">
+        <div class="modal-content" style="width: 400px;">
+            <div class="modal-header">
+                <h3 id="folderModalTitle">New Folder</h3>
+                <button class="modal-close folder-modal-close">&times;</button>
+            </div>
+            <form id="folderForm">
+                <div class="form-group">
+                    <label>Folder Name</label>
+                    <input type="text" id="inputFolderName" required placeholder="My Folder">
+                </div>
+                <div class="form-group">
+                    <label>Color</label>
+                    <div class="color-picker">
+                        <button type="button" class="color-btn" data-color="#8b5cf6">🟣</button>
+                        <button type="button" class="color-btn" data-color="#3b82f6">🔵</button>
+                        <button type="button" class="color-btn" data-color="#10b981">🟢</button>
+                        <button type="button" class="color-btn" data-color="#f59e0b">🟠</button>
+                        <button type="button" class="color-btn" data-color="#ef4444">🔴</button>
+                    </div>
+                    <input type="hidden" id="inputFolderColor" value="#8b5cf6">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="secondary-btn folder-modal-close">Cancel</button>
+                    <button type="submit" class="primary-btn">Save Folder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../lib/db.js"></script>
+    <script src="options.js"></script>
+</body>
+
+</html>
